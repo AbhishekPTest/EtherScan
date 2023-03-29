@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+
+import LatestBlocks from './components/LatestBlocks';
+import { Route, Routes } from 'react-router-dom'
+import ContextProvider from './contextAPI/ContextProvider'
+import BlocksDetails from './components/BlocksDetails/BlocksDetails';
+import TransactionList from './components/TransactionList/TransactionList';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ContextProvider>
+      <Routes>
+        <Route path="/" element={<LatestBlocks />} />
+        <Route path="/block/:blockNumber" element={<BlocksDetails />} />
+        <Route path="/address/:address" element={<LatestBlocks />} />
+        <Route path="/txns/block/:blockNumber" element={<TransactionList />} />
+        {/* //should have query params */}
+      </Routes>
+    </ContextProvider>
+
   );
 }
 
