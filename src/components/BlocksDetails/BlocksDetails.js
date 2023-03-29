@@ -14,7 +14,6 @@ const BlocksDetails = () => {
         navigate('/txns/block/' + blockNumber);
     }
 
-
     useEffect(() => {
 
         const fetchDetails = async () => {
