@@ -10,10 +10,9 @@ const BlocksDetails = () => {
     const { getBlockDetails } = useWeb3Js();
     const navigate = useNavigate();
 
-    const getAllTransactions=(blockNumber)=>{
-        navigate('/txns/block/'+blockNumber);
-    } 
-
+    const getAllTransactions = (blockNumber) => {
+        navigate('/txns/block/' + blockNumber);
+    }
 
     useEffect(() => {
 
@@ -24,7 +23,7 @@ const BlocksDetails = () => {
         }
         fetchDetails();
     }, [blockNumber, getBlockDetails])
-   
+
 
     if (loading) {
         return (
@@ -54,7 +53,7 @@ const BlocksDetails = () => {
                 <h4>{blockDetails.number}</h4>
                 <h4>Status</h4>
                 <h4>{blockDetails.timestamp}</h4>
-                <h4 onClick={()=>getAllTransactions(blockDetails.number)}>{blockDetails.txn}</h4>
+                <h4 onClick={() => getAllTransactions(blockDetails.number)}>{blockDetails.txn}</h4>
                 <h4>Transactions</h4>
                 <h4>{blockDetails.miner}</h4>
                 <h4>Block Reward</h4>
