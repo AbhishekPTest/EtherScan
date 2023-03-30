@@ -28,15 +28,20 @@ const LatestBlocks = () => {
             <h3>Loading</h3>
         );
     }
+    console.log(blockList)
     return (
-        <>
-            <h2>Blocks</h2>
-            <div className={styles['custom-container']}>
-                <table>
+        <div className={styles['custom-container-main']}>
+            <h3 className={styles['title']}>Blocks</h3>
+            <div className={styles['custom-table-container']}>
+                <div className={styles['custom-table-caption']}>
+                    <span>Total of {blockList.length} blocks</span>
+                    <span>(Showing blocks between #{blockList[0].number} to #{blockList[blockList.length-1].number})</span>
+                </div>
+                <table  className={styles['custom-table']}>
                     <thead>
                         <tr>
                             {ColumnArray_Blocks_List.map((item, index) => {
-                                return (<th key={item}>
+                                return (<th key={item} className={styles['custom-table-headers']}>
                                     {item}
                                 </th>);
                             })}
@@ -44,19 +49,21 @@ const LatestBlocks = () => {
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody >
                         {blockList.length > 0 && (
                             blockList.map((item) => {
                                 return (
-                                    <tr key={item.miner}>
+                                    <tr key={item.miner}  >
 
-                                        <th onClick={() => NavigateToBlockPage(item.number)}>{item.number}</th>
-                                        <th>{item.timestamp}</th>
-                                        <th>{item.txn}</th>
-                                        <th>{item.miner}</th>
-                                        <th>{item.gasUsed}</th>
-                                        <th>{item.gasLimit}</th>
-                                        <th>{item.baseFeePerGas}</th>
+                                        <th  className={styles['custom-table-row-data']} onClick={() => NavigateToBlockPage(item.number)}>{item.number}</th>
+                                        <th  className={styles['custom-table-row-data']}>{item.timestamp}</th>
+                                        <th  className={styles['custom-table-row-data']}>{item.txn}</th>
+                                        <th className={styles['custom-table-row-data']}>{item.miner}</th>
+                                        <th className={styles['custom-table-row-data']}>{item.gasUsed}</th>
+                                        <th className={styles['custom-table-row-data']}>{item.gasLimit}</th>
+                                        <th className={styles['custom-table-row-data']}>{item.baseFeePerGas}</th>
+                                        <th className={styles['custom-table-row-data']}></th>
+                                        <th className={styles['custom-table-row-data']}></th>
                                     </tr>
                                 );
                             })
@@ -65,7 +72,7 @@ const LatestBlocks = () => {
                 </table>
             </div>
 
-        </>
+        </div>
     );
 }
 

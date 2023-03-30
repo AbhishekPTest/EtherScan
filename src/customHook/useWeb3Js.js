@@ -10,7 +10,7 @@ const useWeb3Js = () => {
     const getLatestBlocks=useCallback( async()=>{
         const tempList=[];
 
-        for (var i = 0; i < 10; i++) {
+        for (var i = 0; i < 5; i++) {
             tempList.push(  await web3.eth.getBlock(await web3.eth.getBlockNumber()- i));
             tempList[i]['txn'] = tempList[i].transactions.length;
 

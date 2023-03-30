@@ -1,5 +1,60 @@
-.custom-container{
+.custom-table-container{
     display: grid;
     grid-template-columns: auto;
-    
+    border: 1px solid lightgray;
+    background-color: white;    
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    box-shadow: 0px 0px 1px lightgray;
 }
+.title{
+    font-weight: inherit;
+}
+.custom-container-main{
+    width: 80%;
+
+}
+
+.custom-table-caption{
+    padding-left: 20px;
+    font-weight: inherit;
+    padding: 15px 0px 15px 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    font-size: 15px;
+}
+
+.custom-table-headers{
+    font-size: 12px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.custom-table-headers:first-child{
+    padding-left: 10px;
+}
+
+.custom-table-row-data{
+    font-size: 12px;
+    text-align: left;
+    padding: 10px 0px;
+    font-weight: 400;
+    border-top: 1px dotted lightgray;
+  
+}
+
+.custom-table-row-data:first-child{
+    padding-left: 10px;  
+    color: blue;
+    cursor: pointer;
+}
+
+.custom-table-row-data:nth-child(4){
+    width: 325px;
+}
+
+.custom-table{
+    border-collapse: collapse;
+}
+
